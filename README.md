@@ -4,24 +4,28 @@
 > **Code for Communities — Darjeeling Himalayan Railway Edition · GDG Siliguri**  
 > **Track C · Problem Statement C1** (Permanent-Way Maintenance & Hazard Reporting)
 
+[![Live App](https://img.shields.io/badge/Live%20App-Vercel%20Production-success.svg?logo=vercel)](https://code-for-communities-toy-train-edit.vercel.app/)
 [![Demo Video](https://img.shields.io/badge/YouTube-Video%20Demo-red.svg?logo=youtube)](https://youtube.com/shorts/ewLzl7GmfCk?feature=share)
 [![PWA](https://img.shields.io/badge/PWA-100%25%20Offline%20First-green.svg)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
-[![Vercel](https://img.shields.io/badge/Deploy-Vercel%20Serverless-black.svg)](https://vercel.com)
 [![Database](https://img.shields.io/badge/Database-CockroachDB%20Serverless-blue.svg)](https://cockroachlabs.cloud)
 [![AI](https://img.shields.io/badge/AI-Gemini%20Nano%20%2F%20Chrome%20Prompt%20API-orange.svg)](https://developer.chrome.com/docs/ai/built-in)
 [![Languages](https://img.shields.io/badge/Languages-EN%20%7C%20%E0%A4%A8%E0%A5%87%E0%A4%AA%E0%A4%BE%E0%A4%B2%E0%A5%80%20%7C%20%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A5%8D%E0%A4%A6%E0%A5%80%20%7C%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE-purple.svg)](#-multilingual-localization-en--ne--hi--bn)
 
+> 🚀 **Live Production PWA**: [**https://code-for-communities-toy-train-edit.vercel.app/**](https://code-for-communities-toy-train-edit.vercel.app/)  
 > 📺 **Live Video Demonstration**: [**Watch Gangman's Logbook on YouTube Shorts**](https://youtube.com/shorts/ewLzl7GmfCk?feature=share)
 
 ---
 
-## 🎥 Live Video Demo
+## 🌐 Live Application & Video Demo
 
-Watch the real-world mobile demonstration showing offline report creation, on-device AI hazard analysis, outdoor sunlight mode, and background synchronization:
+| Resource | Link | Description |
+| :--- | :--- | :--- |
+| 🚀 **Live Production PWA** | [**code-for-communities-toy-train-edit.vercel.app**](https://code-for-communities-toy-train-edit.vercel.app/) | Installable offline PWA with edge dispatch API |
+| 📺 **Video Demonstration** | [**Watch YouTube Shorts Demo**](https://youtube.com/shorts/ewLzl7GmfCk?feature=share) | 60-second mobile field inspection walkthrough |
 
-[![Gangman's Logbook Demo](https://img.shields.io/badge/YouTube%20Shorts-Watch%20Demo%20Video-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/shorts/ewLzl7GmfCk?feature=share)
+[![Launch Live PWA](https://img.shields.io/badge/Vercel-Launch%20Live%20App-black?style=for-the-badge&logo=vercel)](https://code-for-communities-toy-train-edit.vercel.app/)
+[![Watch Video Demo](https://img.shields.io/badge/YouTube%20Shorts-Watch%20Demo%20Video-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/shorts/ewLzl7GmfCk?feature=share)
 
-🔗 **Direct Link**: [https://youtube.com/shorts/ewLzl7GmfCk?feature=share](https://youtube.com/shorts/ewLzl7GmfCk?feature=share)
 
 
 ## 🏔️ Real-World Problem & Field Context
@@ -153,6 +157,8 @@ Admin endpoint to clear central records for drills or shift transitions.
 ## 🚀 Deployment Guide
 
 ### Option A: Deploy to Vercel (Recommended)
+
+> ⚡ **Active Production Deployment**: [**https://code-for-communities-toy-train-edit.vercel.app/**](https://code-for-communities-toy-train-edit.vercel.app/)
 
 1. Fork or push this repository to GitHub.
 2. Go to **[vercel.com/new](https://vercel.com/new)**.
