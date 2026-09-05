@@ -585,6 +585,9 @@ async function submitReport() {
 
 // ─── Dashboard View ────────────────────────────
 async function onDashboardEnter() {
+  if (window.Sync && window.Sync.pullCentralReports && navigator.onLine) {
+    await window.Sync.pullCentralReports().catch(() => {});
+  }
   await Dashboard.renderSectionSummary(dom.dashboardSummary);
   await loadFilteredReports();
 }

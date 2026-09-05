@@ -89,13 +89,52 @@ async function syncPendingReports() {
 }
 
 /**
+ * Pull reports from the central dispatch server into local storage.
+ * Enables Station Masters, ADENs, and other patrol workers to view
+ * reports submitted across different patrol devices.
+ *
+ * @returns {Promise<number>} Number of remote reports merged
+ */
+async function pullCentralReports() {
+  if (!navigator.onLine) {
+    console.log('[Sync] Offline, skipping central pull');
+    return 0;
+  }
+
+  try {
+    const response = await fetch(SYNC_ENDPOINT, {
+      headers: { 'Accept': 'application/json' },
+    });
+
+    if (!response.ok) {
+      console.warn('[Sync] Central server returned status:', response.status);
+      return 0;
+    }
+
+    const remoteReports = await response.json();
+    if (Array.isArray(remoteReports) && remoteReports.length > 0 && window.DB && window.DB.mergeRemoteReports) {
+      const mergedCount = await window.DB.mergeRemoteReports(remoteReports);
+      if (mergedCount > 0) {
+        window.dispatchEvent(new CustomEvent('reports-synced', { detail: { pulled: mergedCount } }));
+      }
+      return mergedCount;
+    }
+  } catch (error) {
+    console.log('[Sync] Note: Central dispatch pull skipped (offline or static host):', error.message);
+  }
+
+  return 0;
+}
+
+/**
  * Initialize sync listeners.
  */
 function initSync() {
-  // Listen for online events to trigger sync
+  // Listen for online events to trigger push and pull sync
   window.addEventListener('online', async () => {
-    console.log('[Sync] Online detected, attempting sync');
+    console.log('[Sync] Online detected, syncing pending reports and pulling central updates');
     const result = await syncPendingReports();
+    await pullCentralReports();
 
     if (result.synced > 0) {
       window.dispatchEvent(new CustomEvent('reports-synced', { detail: result }));
@@ -107,11 +146,19 @@ function initSync() {
     navigator.serviceWorker.addEventListener('message', async (event) => {
       if (event.data && event.data.type === 'SYNC_TRIGGERED') {
         const result = await syncPendingReports();
+        await pullCentralReports();
         if (result.synced > 0) {
           window.dispatchEvent(new CustomEvent('reports-synced', { detail: result }));
         }
       }
     });
+  }
+
+  // Initial pull on load if connected
+  if (navigator.onLine) {
+    setTimeout(() => {
+      pullCentralReports().catch(() => {});
+    }, 1500);
   }
 }
 
@@ -119,5 +166,7 @@ function initSync() {
 window.Sync = {
   requestSync,
   syncPendingReports,
+  pullCentralReports,
   initSync,
 };
+

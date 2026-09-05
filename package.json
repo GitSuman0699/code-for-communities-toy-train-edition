@@ -1,0 +1,21 @@
+{
+  "name": "dhr-gangmans-logbook",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline-First Track Inspection PWA for Darjeeling Himalayan Railway (DHR) Gangmen & Patrol Staff",
+  "scripts": {
+    "dev": "python server.py",
+    "start": "python server.py"
+  },
+  "keywords": [
+    "pwa",
+    "offline-first",
+    "darjeeling-himalayan-railway",
+    "gangman",
+    "indexeddb",
+    "mediapipe",
+    "background-sync"
+  ],
+  "author": "GitSuman0699",
+  "license": "MIT"
+}

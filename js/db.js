@@ -252,6 +252,40 @@ async function clearAllReports() {
 }
 
 /**
+ * Merge reports received from the central server into IndexedDB.
+ * @param {Array<Object>} remoteReports
+ * @returns {Promise<number>} Number of reports merged
+ */
+async function mergeRemoteReports(remoteReports) {
+  if (!Array.isArray(remoteReports) || remoteReports.length === 0) return 0;
+  const db = await openDB();
+
+  return new Promise((resolve) => {
+    const tx = db.transaction(STORE_REPORTS, 'readwrite');
+    const store = tx.objectStore(STORE_REPORTS);
+    let count = 0;
+
+    remoteReports.forEach((rpt) => {
+      if (rpt && rpt.id) {
+        // Mark as synced locally since it exists on the central server
+        const copy = { ...rpt, syncStatus: 'synced' };
+        store.put(copy);
+        count++;
+      }
+    });
+
+    tx.oncomplete = () => {
+      console.log(`[DB] Merged ${count} reports from central dispatch`);
+      resolve(count);
+    };
+    tx.onerror = (e) => {
+      console.warn('[DB] Failed to merge remote reports:', e);
+      resolve(0);
+    };
+  });
+}
+
+/**
  * Generate a representative SVG data URL for demo hazards.
  */
 function createDemoHazardImage(type, title) {
@@ -385,6 +419,7 @@ window.DB = {
   getPendingReports,
   deleteReport,
   clearAllReports,
+  mergeRemoteReports,
   seedDemoReports,
   createDemoHazardImage,
 };
