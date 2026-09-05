@@ -67,29 +67,29 @@ Immediate one-tap switching across 4 languages representing the track gang commu
 ```mermaid
 flowchart TD
     subgraph EdgeDevice ["📱 Edge Mobile Device (Patrol Gangman)"]
-        UI[Field Ergonomic UI] --> Form[Hazard Report Form]
-        Voice[Mic Voice-to-Text] --> Form
-        Cam[Camera / Photo Capture] --> Form
-        Form --> AI[On-Device AI / Gemini Nano]
-        AI --> IDB[(Local IndexedDB)]
-        IDB -->|Status: Pending| OfflineQueue[Offline Queue]
+        UI["Field Ergonomic UI"] --> Form["Hazard Report Form"]
+        Voice["Mic Voice-to-Text"] --> Form
+        Cam["Camera / Photo Capture"] --> Form
+        Form --> AI["On-Device AI (Gemini Nano)"]
+        AI --> IDB[("Local IndexedDB")]
+        IDB -->|"Status: Pending"| OfflineQueue["Offline Queue"]
     end
 
     subgraph SyncLayer ["🔄 Network Transition & Auto-Sync"]
-        OfflineQueue -->|Wi-Fi / 4G Restored| BGSync[Background Sync Engine]
-        BGSync -->|HTTP POST /api/reports| VercelAPI
+        OfflineQueue -->|"Wi-Fi / 4G Restored"| BGSync["Background Sync Engine"]
+        BGSync -->|"HTTP POST /api/reports"| VercelAPI
     end
 
     subgraph CloudDispatch ["☁️ Central Dispatch (Vercel + CockroachDB)"]
-        VercelAPI[Vercel Serverless API /api/reports]
-        VercelAPI -->|Dual-Mode Engine| CockroachDB[(CockroachDB Cloud SQL)]
-        VercelAPI -.->|Fallback Mode| LocalCache[/tmp Memory Cache]
+        VercelAPI["Vercel Serverless API (/api/reports)"]
+        VercelAPI -->|"Dual-Mode Engine"| CockroachDB[("CockroachDB Cloud SQL")]
+        VercelAPI -.->|"Fallback Mode"| LocalCache["Temporary Memory Cache"]
     end
 
     subgraph StationView ["🏢 Station Master / ADEN Engineer Dashboard"]
-        VercelAPI -->|HTTP GET /api/reports| StationDash[Live Incident Dashboard]
-        StationDash --> Filter[Section Filter & Geo Map]
-        StationDash --> Action[Track Clearance & Dispatch]
+        VercelAPI -->|"HTTP GET /api/reports"| StationDash["Live Incident Dashboard"]
+        StationDash --> Filter["Section Filter & Geo Map"]
+        StationDash --> Action["Track Clearance & Dispatch"]
     end
 ```
 
