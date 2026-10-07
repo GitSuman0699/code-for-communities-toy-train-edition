@@ -152,8 +152,6 @@ Admin endpoint to clear central records for drills or shift transitions.
 
 ### Option A: Deploy to Vercel (Recommended)
 
-> **Active Production Deployment**: [**https://code-for-communities-toy-train-edit.vercel.app/**](https://code-for-communities-toy-train-edit.vercel.app/)
-
 1. Fork or push this repository to GitHub.
 2. Go to **[vercel.com/new](https://vercel.com/new)**.
 3. Import repository `code-for-communities-toy-train-edition`.
