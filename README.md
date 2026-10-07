@@ -4,7 +4,6 @@
 > **Code for Communities — Darjeeling Himalayan Railway Edition · GDG Siliguri**  
 > **Track C · Problem Statement C1** (Permanent-Way Maintenance & Hazard Reporting)
 
-[![Live App](https://img.shields.io/badge/Live%20App-Vercel%20Production-success.svg?logo=vercel)](https://code-for-communities-toy-train-edit.vercel.app/)
 [![Demo Video](https://img.shields.io/badge/YouTube-Video%20Demo-red.svg?logo=youtube)](https://youtube.com/shorts/ewLzl7GmfCk?feature=share)
 [![PWA](https://img.shields.io/badge/PWA-100%25%20Offline%20First-green.svg)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
 [![Database](https://img.shields.io/badge/Database-CockroachDB%20Serverless-blue.svg)](https://cockroachlabs.cloud)
