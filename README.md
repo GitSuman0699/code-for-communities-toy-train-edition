@@ -1,4 +1,4 @@
-# 🛤️ Gangman's Logbook — DHR Track Inspector
+# Gangman's Logbook — DHR Track Inspector
 
 > **Offline-First, Mobile-First PWA & Central Dispatch System for the Darjeeling Himalayan Railway (UNESCO World Heritage)**  
 > **Code for Communities — Darjeeling Himalayan Railway Edition · GDG Siliguri**  
@@ -11,24 +11,21 @@
 [![AI](https://img.shields.io/badge/AI-Gemini%20Nano%20%2F%20Chrome%20Prompt%20API-orange.svg)](https://developer.chrome.com/docs/ai/built-in)
 [![Languages](https://img.shields.io/badge/Languages-EN%20%7C%20%E0%A4%A8%E0%A5%87%E0%A4%AA%E0%A4%BE%E0%A4%B2%E0%A5%80%20%7C%20%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A5%8D%E0%A4%A6%E0%A5%80%20%7C%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE-purple.svg)](#-multilingual-localization-en--ne--hi--bn)
 
-> 🚀 **Live Production PWA**: [**https://code-for-communities-toy-train-edit.vercel.app/**](https://code-for-communities-toy-train-edit.vercel.app/)  
-> 📺 **Live Video Demonstration**: [**Watch Gangman's Logbook on YouTube Shorts**](https://youtube.com/shorts/ewLzl7GmfCk?feature=share)
+> **Live Video Demonstration**: [**Watch Gangman's Logbook on YouTube Shorts**](https://youtube.com/shorts/ewLzl7GmfCk?feature=share)
 
 ---
 
-## 🌐 Live Application & Video Demo
+## Live Application & Video Demo
 
 | Resource | Link | Description |
 | :--- | :--- | :--- |
-| 🚀 **Live Production PWA** | [**code-for-communities-toy-train-edit.vercel.app**](https://code-for-communities-toy-train-edit.vercel.app/) | Installable offline PWA with edge dispatch API |
-| 📺 **Video Demonstration** | [**Watch YouTube Shorts Demo**](https://youtube.com/shorts/ewLzl7GmfCk?feature=share) | 60-second mobile field inspection walkthrough |
+| **Video Demonstration** | [**Watch YouTube Shorts Demo**](https://youtube.com/shorts/ewLzl7GmfCk?feature=share) | 60-second mobile field inspection walkthrough |
 
-[![Launch Live PWA](https://img.shields.io/badge/Vercel-Launch%20Live%20App-black?style=for-the-badge&logo=vercel)](https://code-for-communities-toy-train-edit.vercel.app/)
 [![Watch Video Demo](https://img.shields.io/badge/YouTube%20Shorts-Watch%20Demo%20Video-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/shorts/ewLzl7GmfCk?feature=share)
 
 
 
-## 🏔️ Real-World Problem & Field Context
+## Real-World Problem & Field Context
 
 The **Darjeeling Himalayan Railway (DHR)** operates an 88 km narrow-gauge alignment carved into steep Himalayan slopes between New Jalpaiguri (NJP) at 100m elevation and Ghum at 2,258m. 
 
@@ -38,39 +35,39 @@ Track Gangmen walk this mountain line daily through torrential monsoon rains, fr
 
 ---
 
-## 🌟 Key Features
+## Key Features
 
-### 1. 📶 100% Offline-First Architecture (Airplane Mode Tested)
+### 1. 100% Offline-First Architecture (Airplane Mode Tested)
 - **Local Database (IndexedDB)**: Reports, GPS coordinates, hazard photos, severity classifications, and audio notes are stored locally in milliseconds without blocking or waiting for network handshakes.
 - **Service Worker (`v6`)**: Comprehensive asset precaching across all views, CSS, JS, audio assets, and fonts.
 - **Background Sync Engine**: Utilizes the native Service Worker `sync` event with automated `online` fallbacks to batch-upload pending reports when reaching station Wi-Fi or 4G coverage.
 
-### 2. ⚡ Unified Full-Stack Vercel Deployment & CockroachDB
+### 2. Unified Full-Stack Vercel Deployment & CockroachDB
 - **Global Edge Frontend**: Instant zero-cold-start delivery from Vercel's global CDN.
 - **Serverless Dispatch API (`/api/reports`)**: Handles `GET`, `POST`, `DELETE`, and `OPTIONS` under the same origin—no CORS setup required.
 - **Permanent Cloud Persistence**: Powered by **CockroachDB Serverless** (Distributed PostgreSQL) for indestructible, multi-region hazard logging across cold starts, with zero-config fallback to `/tmp` and local memory for instant testing.
 - **Bidirectional Station Sync**: When Station Masters or ADEN engineers open their Dashboard, `pullCentralReports()` automatically retrieves and merges logs submitted across all patrol gangs.
 
-### 3. 📱 Mobile-First Field Ergonomics & Sunlight Mode
+### 3. Mobile-First Field Ergonomics & Sunlight Mode
 - **48px+ Touch Targets**: Sized for cold mountain hands, thick work gloves, and turbulent track walking.
 - **Tactile 2×2 Severity Matrix**: Instant single-thumb classification across `Low`, `Medium`, `High`, and `Critical` urgency levels.
-- **☀️ Outdoor Sunlight Mode**: High-contrast daylight theme providing maximum visibility under harsh mountain glare and monsoon overcast.
+- **Outdoor Sunlight Mode**: High-contrast daylight theme providing maximum visibility under harsh mountain glare and monsoon overcast.
 - **Safe Area Inset Aware**: Fully compatible with phone notches and gesture bars (`env(safe-area-inset)`).
 - **No-Zoom Inputs**: Typographic scaling prevents disruptive auto-zooming on mobile browsers.
 
-### 4. 🌐 Multilingual Localization (EN · NE · HI · BN)
+### 4. Multilingual Localization (EN · NE · HI · BN)
 Immediate one-tap switching across 4 languages representing the track gang community:
 - **English (EN)**: Official railway engineering terminology.
 - **Nepali (नेपाली)**: Primary mother tongue of Darjeeling & Kurseong trackmen.
 - **Hindi (हिन्दी)**: Northeast Frontier Railway (NFR) administrative standard.
 - **Bengali (বাংলা)**: Regional North Bengal standard.
 
-### 5. 🤖 On-Device Hybrid AI System
+### 5. On-Device Hybrid AI System
 - **Chrome Prompt API (`window.ai` / Gemini Nano)**: On-device natural language classification and automated summary synthesis without server API keys.
 - **Computer Vision Heuristic Engine**: Real-time canvas analysis inspecting brightness, contrast, and RGB spectrum to detect landslide mud, rail rust, or water pooling.
 - **Multilingual Offline Rule Engine**: 100% reliable fallback logic executing in under 2ms even when device AI hardware is unavailable.
 
-### 6. 🚆 DHR Track Alignment & Auto-GPS
+### 6. DHR Track Alignment & Auto-GPS
 - Mathematical projection onto the 88 km narrow-gauge curve (13 consecutive mountain sections).
 - Auto-selects the nearest section (e.g., *Batasia Loop*, *Pagla Jhora*, *Tindharia*).
 - Auto-calculates approximate railway Kilometer Marker (KM 0 to 88).
@@ -78,11 +75,11 @@ Immediate one-tap switching across 4 languages representing the track gang commu
 
 ---
 
-## 🔄 End-to-End System Architecture
+## End-to-End System Architecture
 
 ```mermaid
 flowchart TD
-    subgraph EdgeDevice ["📱 Edge Mobile Device (Patrol Gangman)"]
+    subgraph EdgeDevice ["Edge Mobile Device (Patrol Gangman)"]
         UI["Field Ergonomic UI"] --> Form["Hazard Report Form"]
         Voice["Mic Voice-to-Text"] --> Form
         Cam["Camera / Photo Capture"] --> Form
@@ -91,18 +88,18 @@ flowchart TD
         IDB -->|"Status: Pending"| OfflineQueue["Offline Queue"]
     end
 
-    subgraph SyncLayer ["🔄 Network Transition & Auto-Sync"]
+    subgraph SyncLayer ["Network Transition & Auto-Sync"]
         OfflineQueue -->|"Wi-Fi / 4G Restored"| BGSync["Background Sync Engine"]
         BGSync -->|"HTTP POST /api/reports"| VercelAPI
     end
 
-    subgraph CloudDispatch ["☁️ Central Dispatch (Vercel + CockroachDB)"]
+    subgraph CloudDispatch ["Central Dispatch (Vercel + CockroachDB)"]
         VercelAPI["Vercel Serverless API (/api/reports)"]
         VercelAPI -->|"Dual-Mode Engine"| CockroachDB[("CockroachDB Cloud SQL")]
         VercelAPI -.->|"Fallback Mode"| LocalCache["Temporary Memory Cache"]
     end
 
-    subgraph StationView ["🏢 Station Master / ADEN Engineer Dashboard"]
+    subgraph StationView ["Station Master / ADEN Engineer Dashboard"]
         VercelAPI -->|"HTTP GET /api/reports"| StationDash["Live Incident Dashboard"]
         StationDash --> Filter["Section Filter & Geo Map"]
         StationDash --> Action["Track Clearance & Dispatch"]
@@ -111,7 +108,7 @@ flowchart TD
 
 ---
 
-## 🔌 REST API Specification
+## REST API Specification
 
 The backend serverless function is located at [`api/reports.js`](file:///c:/Users/shran/my_projects/My%20Projects/code-for-communities-toy-train-edition/api/reports.js) and exposes:
 
@@ -154,25 +151,17 @@ Admin endpoint to clear central records for drills or shift transitions.
 
 ---
 
-## 🚀 Deployment Guide
+## Deployment Guide
 
 ### Option A: Deploy to Vercel (Recommended)
 
-> ⚡ **Active Production Deployment**: [**https://code-for-communities-toy-train-edit.vercel.app/**](https://code-for-communities-toy-train-edit.vercel.app/)
+> **Active Production Deployment**: [**https://code-for-communities-toy-train-edit.vercel.app/**](https://code-for-communities-toy-train-edit.vercel.app/)
 
 1. Fork or push this repository to GitHub.
 2. Go to **[vercel.com/new](https://vercel.com/new)**.
 3. Import repository `code-for-communities-toy-train-edition`.
 4. Leave settings as default (**Framework Preset: Other**, **Root Directory: `./`**).
 5. Click **Deploy**. Both the static PWA frontend and `/api/reports` serverless backend build together instantly.
-
-#### Linking CockroachDB (Permanent Cloud Storage):
-1. In your [Cockroach Labs Console](https://cockroachlabs.cloud), click **Connect** → Copy your PostgreSQL connection string.
-2. In your Vercel project: **Settings** → **Environment Variables**.
-3. Add:
-   - **Key**: `DATABASE_URL`
-   - **Value**: `postgresql://<user>:<password>@<host>:26257/<database>?sslmode=verify-full`
-4. Redeploy. The API will automatically create the `dhr_reports` table on the first call and persist all logs across cold starts.
 
 ---
 
@@ -193,7 +182,7 @@ Open the generated HTTPS URL on your phone to test the app as a real track gangm
 
 ---
 
-## 🏆 Hackathon Rubric Alignment
+## Hackathon Rubric Alignment
 
 | Criterion | Weight | How Gangman's Logbook Delivers |
 | :--- | :---: | :--- |
@@ -204,7 +193,7 @@ Open the generated HTTPS URL on your phone to test the app as a real track gangm
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 ├── api/
